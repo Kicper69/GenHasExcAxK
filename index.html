@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator hasła</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Widzisz to tło? na chuj tu patrzysz */
+        }
+        video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1; /* Nie kradnij napisz swoj generator? */
+        }
+        /* Rabus nie kradnij */
+        h1 {
+            color: #f8f4f4;
+        }
+        form {
+            margin: 20px auto;
+            max-width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(241, 239, 239, 0.973);
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #f8f7f7;
+        }
+        form {
+            margin: 20px auto;
+            max-width: 300px;
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(132, 65, 219, 0.973);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+            color: rgb(250, 248, 252);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #0c0c0c;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #824caf;
+            color: rgb(253, 251, 251);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgb(103, 52, 136);
+        }
+        p {
+            
+            margin-top: 25px;
+            color: rgb(252, 251, 251);
+            text-shadow: 2px 2px 4px rgb(102, 0, 185);
+            font-size: 25px;
+            background-color: rgba(0,0,0,0.2);
+            padding: 10px;
+        }
+        span {
+            font-weight: bold;
+        }
+        .youtube-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .youtube-button:hover {
+            background-color: #CC0000;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted>
+        <source src="img/PURPLE ANIMATED WALLPAPER.mp4" type="video/mp4">
+        ŁADNE CN?
+    </video>
+    <!-- Przestan krasc to co moje -->
+    <div>
+    <h1>📜Generator Hasła ExcA$xK📜</h1>
+    <form>
+        <label for="passwordLength">Długość hasła (NIE PRZESADZAJ):</label>
+        <input type="number" id="passwordLength" name="passwordLength" min="6" max="69" required>
+        <button type="button" onclick="generatePassword()">Generuj hasło</button>
+    </form>
+    <p>Twoje hasło: <span id="generatedPassword"></span></p>
+
+    <button class="youtube-button" onclick="goToYouTubeChannel()">Przejdź na mój kanał YouTube</button>
+
+    <script>
+        function generatePassword() {
+            var length = document.getElementById('passwordLength').value;
+            var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+            var password = "";
+            for (var i = 0; i < length; i++) {
+                password += charset.charAt(Math.floor(Math.random() * charset.length));
+            }
+            document.getElementById('generatedPassword').textContent = password;
+        }
+
+        function goToYouTubeChannel() {
+            window.location.href = "https://www.youtube.com/channel/UCaF7hKaO9MGSwvSqkYCm6hw";
+        }
+    </script>
+</body>
+</html>
