@@ -95,16 +95,61 @@
             padding: 10px 20px;
             background-color: #FF0000;
             color: white;
+            box-shadow: rgba(132, 65, 219, 0.973);
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
         .youtube-button:hover {
             background-color: #CC0000;
+            box-shadow: rgba(132, 65, 219, 0.973);
         }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #f8f7f7;
+            margin-top: 50px;
+        }
+        #calculator {
+            width: 240px;
+            margin: 0 auto;
+            background-color: #050505;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px 0px rgba(132, 65, 219, 0.973);
+            padding: 10px;
+        }
+        #display {
+            width: 100%;
+            margin-bottom: 10px;
+            height: 40px;
+            font-size: 24px;
+            border: none;
+            border-radius: 10px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        input[type="button"] {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: rgb(103, 52, 136);
+            color: #fff;
+        }
+        input[type="button"]:hover {
+            background-color: rgb(35, 3, 56);
+        }
+        input[type="button"]:active {
+            background-color: rgb(102, 0, 185);
+        }
+    
     </style>
 </head>
 <body>
+    
     <video autoplay loop muted>
         <source src="img/PURPLE ANIMATED WALLPAPER.mp4" type="video/mp4">
         ŁADNE CN?
@@ -121,6 +166,27 @@
 
     <button class="youtube-button" onclick="goToYouTubeChannel()">Przejdź na mój kanał YouTube</button>
 
+    <div id="calculator">
+        <h2>Kalkulator</h2>
+        <input type="text" id="display"><br>
+        <input type="button" value="1" onclick="addToDisplay('1')">
+        <input type="button" value="2" onclick="addToDisplay('2')">
+        <input type="button" value="3" onclick="addToDisplay('3')">
+        <input type="button" value="+" onclick="addToDisplay('+')"><br>
+        <input type="button" value="4" onclick="addToDisplay('4')">
+        <input type="button" value="5" onclick="addToDisplay('5')">
+        <input type="button" value="6" onclick="addToDisplay('6')">
+        <input type="button" value="-" onclick="addToDisplay('-')"><br>
+        <input type="button" value="7" onclick="addToDisplay('7')">
+        <input type="button" value="8" onclick="addToDisplay('8')">
+        <input type="button" value="9" onclick="addToDisplay('9')">
+        <input type="button" value="*" onclick="addToDisplay('*')"><br>
+        <input type="button" value="C" onclick="clearDisplay()">
+        <input type="button" value="0" onclick="addToDisplay('0')">
+        <input type="button" value="=" onclick="calculate()">
+        <input type="button" value="/" onclick="addToDisplay('/')">
+    </div>
+
     <script>
         function generatePassword() {
             var length = document.getElementById('passwordLength').value;
@@ -135,6 +201,29 @@
         function goToYouTubeChannel() {
             window.location.href = "https://www.youtube.com/channel/UCaF7hKaO9MGSwvSqkYCm6hw";
         }
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculate() {
+            let expression = document.getElementById('display').value;
+            try {
+                let result = eval(expression);
+                if (Number.isNaN(result) || !Number.isFinite(result)) {
+                    document.getElementById('display').value = 'Błąd';
+                } else {
+                    document.getElementById('display').value = result;
+                }
+            } catch(err) {
+                document.getElementById('display').value = 'Błąd';
+            }
+        }
+
+        
     </script>
 </body>
 </html>
